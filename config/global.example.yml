@@ -1,0 +1,9 @@
+global:
+  mailboxes:
+    mail.example.com:
+      host: imap.example.com
+      login: mail@example.com
+      password: foobar
+      ssl: true
+  notifications:
+    tokens: my_64_letters_token

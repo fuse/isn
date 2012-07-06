@@ -11,6 +11,10 @@ spec/reports
 test/tmp
 test/version_tmp
 tmp
+vendor
+config/global.yml
+certs/certificate.pem
+db/isn.db
 
 # YARD artifacts
 .yardoc
