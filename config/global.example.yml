@@ -5,5 +5,6 @@ global:
       login: mail@example.com
       password: foobar
       ssl: true
+      skip: "foo,bar.baz"
   notifications:
     tokens: my_64_letters_token
