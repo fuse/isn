@@ -40,7 +40,6 @@ def process_mailboxes
 
     skipped = options.has_key?('skip') ? options["skip"].split(',') : []
     account.list("", '*').each do |folder|
-      puts "foo #{folder.name}" if skipped.include?(folder.name.downcase)
       next if skipped.include?(folder.name.downcase)
 
       full_name = "#{name}.#{folder.name}"
