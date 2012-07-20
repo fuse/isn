@@ -24,11 +24,12 @@ def pusher
     gateway:     "gateway.sandbox.push.apple.com")
 end
 
-def notify(content)
+def notify(content, badge = 1)
   token         = configuration["global"]["notifications"]["token"]
   notification  = Grocer::Notification.new(
     device_token: token,
     alert:        content,
+    badge:         badge,
     sound:        "siren.aiff")
   pusher.push(notification)
 end
@@ -52,7 +53,7 @@ def process_mailboxes
         existing_ids  = mailbox.messages_ids.split(',').map(&:to_i)
         ids           = unread_messages - existing_ids
 
-        notify("#{ids.count} nouveaux mails dans #{folder.name}") if ids.any?
+        notify("#{ids.count} nouveaux mails dans #{folder.name}", ids.count) if ids.any?
 
         mailbox.update_attribute :messages_ids, unread_messages.join(',')
       end
